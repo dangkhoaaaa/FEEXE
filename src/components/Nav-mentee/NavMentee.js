@@ -121,92 +121,88 @@ export default function NavMentee({ activePage }) {
 
     return (
         <>
-            <div className="nav-mentee-container">
-                <Link className="nav-item" to="/mentee-homepage">
-                    <img className="logo-tote" src={logo} alt="Logo Tote" />
+            <div className="mentee-nav-mentee-container">
+                <Link className="mentee-nav-item" to="/mentee-homepage">
+                    <img className="mentee-logo-tote" src={logo} alt="Logo Tote" />
                 </Link>
-                <nav className="nav-items">
+                <nav className="mentee-nav-items">
                     <Link
-                        className={`nav-item ${activePage === "home" ? "active-page" : ""}`}
+                        className={`mentee-nav-item ${activePage === "home" ? "mentee-active-page" : ""}`}
                         to="/mentee-homepage"
                     >
                         <FontAwesomeIcon icon={faHouse} />
                         <div>Home</div>
                     </Link>
                     <Link
-                        className={`nav-item ${activePage === "workspace" ? "active-page" : ""
-                            }`}
+                        className={`mentee-nav-item ${activePage === "workspace" ? "mentee-active-page" : ""}`}
                         to="/mentee-workspace"
                     >
                         <FontAwesomeIcon icon={faPlaceOfWorship} />
                         <div>My Workspace</div>
                     </Link>
                     <Link
-                        className={`nav-item ${activePage === "application" ? "active-page" : ""
-                            }`}
+                        className={`mentee-nav-item ${activePage === "application" ? "mentee-active-page" : ""}`}
                         to="/mentee/application"
                     >
                         <FontAwesomeIcon icon={faA} />
                         <div>Application</div>
                     </Link>
                     <Link
-                        className={`nav-item ${activePage === "mentors" ? "active-page" : ""
-                            }`}
+                        className={`mentee-nav-item ${activePage === "mentors" ? "mentee-active-page" : ""}`}
                         to="/mentee/my-mentors"
                     >
                         <FontAwesomeIcon icon={faUserGraduate} />
                         <div>Mentors</div>
                     </Link>
                     <Link
-                        className={`nav-item ${activePage === "messenger" ? "active-page" : ""
-                            }`}
+                        className={`mentee-nav-item ${activePage === "messenger" ? "mentee-active-page" : ""}`}
                         to="/message"
                     >
                         <FontAwesomeIcon icon={faCommentDots} />
                         <div>Messenger</div>
                     </Link>
                     <Link
-                        className={`nav-item nav-item-noti ${activePage === "notification" ? "active-page" : ""
-                            }`}
+                        className={`mentee-nav-item mentee-nav-item-noti ${activePage === "notification" ? "mentee-active-page" : ""}`}
                         to="/notification"
+                        onClick={handleClickNoti}
                     >
-                        <div style={{ textAlign: "center" }} onClick={handleClickNoti}>
+                        <div style={{ textAlign: "center" }}>
                             <FontAwesomeIcon icon={faEnvelope} />
                             <div>Notification</div>
-                            <div className="noti-unread">{noti > 0 && noti}</div>
+                            <div className="mentee-noti-unread">{noti > 0 && noti}</div>
                         </div>
                     </Link>
                 </nav>
                 {myProfile && (
-                    <div className="infor-menu" onClick={toggleMenu} ref={menuRef}>
+                    <div className="mentee-infor-menu" onClick={toggleMenu} ref={menuRef}>
                         <img
-                            className="infor-avatar"
+                            className="mentee-infor-avatar"
                             src={myProfile.profilePic ? myProfile.profilePic : altImg}
                             alt="User Avatar"
                         />
                         <FontAwesomeIcon
                             icon={isMenuOpen ? faChevronUp : faChevronDown}
-                            className="chevron-icon"
+                            className="mentee-chevron-icon"
                             size="xs"
                             style={{ color: "#6ADBD7" }}
                         />
                     </div>
                 )}
                 {isMenuOpen && (
-                    <div className="pop-up-logout" ref={menuRef}>
-                        <p className="header-profile-name">{myProfile.fullName}</p>
+                    <div className="mentee-pop-up-logout" ref={menuRef}>
+                        <p className="mentee-header-profile-name">{myProfile.fullName}</p>
                         <ul>
-                            <li className="profile-setting" onClick={handleProfileSetting}>
+                            <li className="mentee-profile-setting" onClick={handleProfileSetting}>
                                 Profile <FontAwesomeIcon icon={faToolbox} />
                             </li>
-                            <li className="logout" onClick={handleLogout}>
+                            <li className="mentee-logout" onClick={handleLogout}>
                                 Logout <FontAwesomeIcon icon={faRightFromBracket} />
                             </li>
                         </ul>
                     </div>
                 )}
             </div>
-            <div className="line"></div>
+            <div className="mentee-line"></div>
         </>
     );
 }

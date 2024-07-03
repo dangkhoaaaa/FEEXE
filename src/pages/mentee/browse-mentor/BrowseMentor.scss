@@ -1,5 +1,6 @@
 .browse-mentor-container {
   background-color: #f7fcff;
+  padding: 30px 0;
   gap: 30px;
 }
 
@@ -7,6 +8,7 @@
   text-align: center;
   padding: 30px 0;
   font-weight: 800;
+  font-size: 2rem;
 }
 
 .search-mentor {
@@ -14,9 +16,10 @@
   height: 60px;
   background-color: #274a79;
   border-radius: 30px;
-  padding: 30px 50px;
+  padding: 15px 30px;
   display: flex;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .mentor-select__control {
@@ -41,22 +44,23 @@
 }
 
 .mentor-item {
-  width: 70%;
+  width: 100%;
+  max-width: 800px;
   height: fit-content;
   border-radius: 10px;
   border: 1px solid #ccc;
   display: flex;
-  padding: 30px;
+  padding: 20px;
   margin: 0 auto;
   position: relative;
   background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .mentors-list {
   display: flex;
   flex-direction: column;
   gap: 20px; /* Space between items */
-  margin-top: 20px;
 }
 
 .mentors-list-container {
@@ -70,30 +74,31 @@
 .mentor-item-infor {
   display: flex;
   flex-direction: column;
-  padding: 0 40px;
-  font-size: 1.5rem;
+  padding: 0 20px;
+  font-size: 1rem;
 }
 
 .img-mentor-profile {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 10px;
   border: 1px solid #274a79;
+  object-fit: cover;
 }
 
 .btn-view-profile {
   background-color: #6adbd7;
   text-decoration: none;
-  padding: 5px 50px;
+  padding: 5px 30px;
   color: #274a79;
   width: fit-content;
   text-align: center;
   border-radius: 6px;
   margin-top: 10px;
   position: absolute;
-  right: 30px;
-  bottom: 30px;
-  font-size: 1.2rem;
+  right: 20px;
+  bottom: 20px;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -104,7 +109,7 @@
 
 .filter-title {
   text-align: center;
-  font-size: 28px;
+  font-size: 24px;
   padding: 10px 0;
   font-weight: 400;
   border-bottom: 1px solid #274a79;
@@ -113,13 +118,118 @@
 }
 
 .filter-item {
-  padding: 20px 0;
+  padding: 15px 0;
   border-bottom: 0.5px dashed #274a79;
-  margin: 0 20px;
+  margin: 0 10px;
 }
 
 .pagination {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+// Responsive styles
+@media (max-width: 1200px) {
+  .search-mentor {
+    padding: 15px 20px;
+  }
+
+  .mentor-item {
+    padding: 15px;
+  }
+
+  .mentor-community-title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .search-mentor {
+    padding: 10px 15px;
+  }
+
+  .mentor-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .mentor-item-infor {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .img-mentor-profile {
+    width: 100px;
+    height: 100px;
+  }
+
+  .btn-view-profile {
+    right: 10px;
+    bottom: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-mentor {
+    padding: 10px 10px;
+  }
+
+  .mentor-item {
+    padding: 10px;
+  }
+
+  .mentor-item-infor {
+    padding: 5px;
+    font-size: 0.85rem;
+  }
+
+  .img-mentor-profile {
+    width: 80px;
+    height: 80px;
+  }
+
+  .btn-view-profile {
+    padding: 5px 20px;
+    font-size: 0.85rem;
+  }
+
+  .mentor-community-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-mentor {
+    padding: 10px 5px;
+  }
+
+  .mentor-item {
+    padding: 20px;
+  }
+
+  .mentor-item-infor {
+    padding: 0;
+    font-size: 0.8rem;
+  }
+
+  .img-mentor-profile {
+    width: 60px;
+    height: 60px;
+  }
+
+  .btn-view-profile {
+    padding: 5px 15px;
+    font-size: 0.8rem;
+  }
+
+  .mentor-community-title {
+    font-size: 1.25rem;
+  }
+
+  .filter-mentor {
+    display: none;
+  }
 }

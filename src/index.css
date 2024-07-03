@@ -151,3 +151,7 @@ code {
     margin-bottom: 1rem !important;
   }
 }
+
+.carousel {
+  width: 100% !important;
+}

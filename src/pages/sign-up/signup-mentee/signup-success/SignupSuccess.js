@@ -16,20 +16,18 @@ export default function SignupSuccess() {
     const userId = queryParams.get('userId');
     const token = queryParams.get('token');
 
-    const decodedToken = decodeURIComponent(token)
-    const navigate = useNavigate()
+    const decodedToken = decodeURIComponent(token);
+    const navigate = useNavigate();
 
     const fetchConfirmAPI = () => {
-        console.log(userId)
-        console.log(decodedToken)
         axiosInstance.get(`${RYI_URL}/Auth/confirm-email`, {
             params: {
                 userId: userId,
                 token: decodedToken
             }
         })
-            .then((res) => {
-                navigate('/signin')
+            .then(() => {
+                navigate('/signin');
             })
             .catch((e) => {
                 console.error('Error:', e);
@@ -43,9 +41,15 @@ export default function SignupSuccess() {
             <HeaderHome />
             <div className='signup-success-container'>
                 <div className='signup-success-background'>
-                    <h2>Chúc mừng bạn đã đăng ký thành công! <FontAwesomeIcon icon={faThumbsUp} /></h2>
+                    <h2>
+                        Chúc mừng bạn đã đăng ký thành công! <FontAwesomeIcon icon={faThumbsUp} />
+                    </h2>
                     <p><FontAwesomeIcon icon={faFlag} /> Bạn còn thêm một bước nữa để hoàn thành.</p>
-                    <p><small>Hãy vào Email bạn đã đăng ký để xác nhận thành viên và quay lại trang</small> <Link className='btnsignin' to="/signin">đăng nhập</Link> <small>để khám phá ứng dụng nhé.</small></p>
+                    <p>
+                        <small>Hãy vào Email bạn đã đăng ký để xác nhận thành viên và quay lại trang</small>
+                        <Link className='btnsignin' to="/signin">đăng nhập</Link>
+                        <small>để khám phá ứng dụng nhé.</small>
+                    </p>
                     <p>Thank you so much. <FontAwesomeIcon icon={faFaceGrinWink} /></p>
                 </div>
             </div>

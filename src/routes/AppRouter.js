@@ -52,8 +52,6 @@ const AppRouter = () => {
                     <Route path="/mentee-workspace" element={<MyWorkspace />} />
                     <Route path="/mentee/application" element={<Application />} />
                     <Route path="/mentee/my-mentors" element={<BrowseMentor />} />
-                    <Route path="/mentee/messenger" element={<MessengerMentee />} />
-                    <Route path="/notification" element={<Notification />} />
                     <Route path="/mentee/payment" element={<Payment />} />
                     <Route path="/mentee/mentor-profile/apply-confirm/:mentorshipPlan" element={<ApplyQuestion />} />
                 </Route>
@@ -73,6 +71,8 @@ const AppRouter = () => {
                     <Route path="/workspace/submission/:submissionId" element={<SubmissionDetail />} />
                     <Route path="/userProfile/:userId" element={<UserProfile />} />
                     <Route path="/message" element={<MentorMessenger />} />
+                    <Route path="/notification" element={<Notification />} />
+
                 </Route>
 
                 {/* Staff Routes */}

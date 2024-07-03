@@ -8,7 +8,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../../../service/AxiosInstance";
 import { RYI_URL } from "../../../URL_BE/urlbackend";
 import img from "../../../assets/image/banner-img1.jpg"; // Import your default image
-
 import altImg from "../../../assets/image/noImage.png";
 
 export default function Application() {
@@ -74,15 +73,15 @@ export default function Application() {
         <h1>Applications Sent</h1>
         <div
           className={`${applications.length > 0
-              ? "applications-list"
-              : "no-applications-list"
+            ? "mentee-applications-list"
+            : "mentee-no-applications-list"
             }`}
         >
           {applications && applications.length > 0 ? (
             applications.map((application, index) => (
-              <div key={index} className="application-item">
+              <div key={index} className="mentee-application-item">
                 <img
-                  className="img-application"
+                  className="mentee-img-application"
                   src={application.mentor.profilePic || altImg}
                   alt={application.mentor.fullName}
                   onError={(e) => {
@@ -99,15 +98,13 @@ export default function Application() {
                     <b>Status: </b>{" "}
                     <span
                       className={`status ${application.status === "PENDING"
-                          ? "pending-status"
-                          : application.status === "ACCEPTED"
-
-                          ? "accept-status"
+                        ? "mentee-pending-status"
+                        : application.status === "ACCEPTED"
+                          ? "mentee-accept-status"
                           : application.status === "DENIED"
-                          ? "denied-status"
-                          : "status-paid"
-                      }`}
-
+                            ? "mentee-denied-status"
+                            : "mentee-paid-status"
+                        }`}
                     >
                       {application.status}
                     </span>
@@ -123,7 +120,7 @@ export default function Application() {
 
                   {application.status === "ACCEPTED" && (
                     <button
-                      className="btn-payment"
+                      className="mentee-btn-payment"
                       onClick={() =>
                         handlePayment(application.id, application.price)
                       }
@@ -135,12 +132,12 @@ export default function Application() {
               </div>
             ))
           ) : (
-            <div className="no-applications">
+            <div className="mentee-no-applications">
               <FontAwesomeIcon icon={faFileLines} size="3x" />
               <br />
               <b>No active applications</b>
               <p>Once you've applied to a mentor, they will show up here!</p>
-              <Link className="btn-find-mentor" to="/mentee/my-mentors">
+              <Link className="mentee-btn-find-mentor" to="/mentee/my-mentors">
                 Find mentors
               </Link>
             </div>

@@ -1,12 +1,16 @@
 .sign-up_container {
   background-color: #274a79;
-  height: 100%;
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   h1 {
     text-align: center;
     color: #fff;
     text-shadow: 10px 10px 10px #000;
+    margin-top: 20px;
   }
 }
 
@@ -27,36 +31,51 @@
 }
 
 .signup-button {
-  width: 80%;
-  height: 50%;
-  padding: 100px 50px;
+  width: 90%;
+  padding: 20px;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
-  margin: 70px auto;
+  margin: 30px auto;
   border: 5px solid #6adbd7;
-  border-radius: 150px;
+  border-radius: 20px;
+
+  @media (min-width: 768px) {
+    width: 80%;
+    padding: 50px;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 150px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
 
   .signup-mentee,
   .signup-mentor {
-    padding: 10px 30px;
-    background-color: #6adbd7; /* Màu nền cho nút */
-    border: none; /* Bỏ viền */
-    color: #ffffff; /* Màu chữ */
-    padding: 30px 32px; /* Kích thước padding */
-    text-align: center; /* Canh giữa chữ */
-    text-decoration: none; /* Bỏ gạch chân */
-    display: inline-block; /* Hiển thị như inline-block */
-    font-size: 16px; /* Kích thước chữ */
-    margin: 4px 2px; /* Lề */
-    transition: transform 0.3s, box-shadow 0.3s; /* Hiệu ứng chuyển đổi */
-    border-radius: 60px; /* Bo góc */
+    padding: 20px 30px;
+    background-color: #6adbd7;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 60px;
     font-weight: 700;
 
+    @media (min-width: 768px) {
+      padding: 30px 32px;
+      margin: 4px 2px;
+    }
+
     &:hover {
-      transform: translateY(-10px); /* Dịch chuyển lên trên */
-      box-shadow: 10px 8px 16px rgba(0, 0, 0, 0.2); /* Đổ bóng */
-      cursor: pointer; /* Con trỏ chuột khi hover */
+      transform: translateY(-10px);
+      box-shadow: 10px 8px 16px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
       color: #274a79;
     }
 
@@ -64,17 +83,10 @@
       margin-left: 5px;
     }
   }
-}
 
-.signup-form {
-  padding: 50px;
-  h2 {
+  .signup-guide {
+    color: #fff;
     text-align: center;
-    color: #fff !important;
-    text-shadow: 10px 10px 10px #000;
+    margin-bottom: 20px;
   }
-}
-
-.signup-guide {
-  color: #fff;
 }

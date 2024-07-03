@@ -8,7 +8,7 @@
   }
 }
 
-.applications-list {
+.mentee-applications-list {
   width: 80%;
   height: fit-content;
   margin: 0 auto;
@@ -20,7 +20,7 @@
   border-radius: 10px;
 }
 
-.btn-find-mentor {
+.mentee-btn-find-mentor {
   text-decoration: none;
   background-color: #274a79;
   color: #fff;
@@ -29,39 +29,60 @@
   border-radius: 5px;
 }
 
-.application-item {
+.mentee-application-item {
   width: auto;
   height: fit-content;
   padding: 20px;
   display: flex;
   background-color: #fff;
+  align-items: center;
+  gap: 20px;
 
   .status {
     padding: 3px 10px;
   }
+
+  .mentee-img-application {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #274a79;
+    border-radius: 80px;
+    margin-right: 20px;
+  }
+
+  .mentee-btn-payment {
+    background-color: #274a79;
+    padding: 0 20px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .mentee-btn-view-detail-application {
+    margin-right: 10px;
+  }
 }
 
-.pending-status {
+.mentee-pending-status {
   background-color: #fcf462;
   font-weight: 600;
 }
 
-.accept-status {
+.mentee-accept-status {
   background-color: #4dfe44;
   font-weight: 600;
 }
 
-.denied-status {
+.mentee-denied-status {
   background-color: #fa2929;
   font-weight: 600;
 }
 
-.paid-status {
+.mentee-paid-status {
   background-color: #4dfe44;
   font-weight: 600;
 }
 
-.no-applications-list {
+.mentee-no-applications-list {
   width: 80%;
   height: fit-content;
   border: 1px solid #274a79;
@@ -70,21 +91,103 @@
   text-align: center;
 }
 
-.img-application {
-  width: 150px;
-  height: 150px;
-  border: 1px solid #274a79;
-  border-radius: 80px;
-  margin-right: 50px;
+@media (max-width: 1200px) {
+  .applications-container {
+    padding: 40px;
+  }
+
+  .mentee-applications-list {
+    width: 90%;
+  }
+
+  .mentee-img-application {
+    width: 130px;
+    height: 130px;
+  }
 }
 
-.btn-payment {
-  background-color: #274a79;
-  padding: 0 20px;
-  font-weight: 700;
-  color: #fff;
+@media (max-width: 992px) {
+  .applications-container {
+    padding: 30px;
+  }
+
+  .mentee-applications-list {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .mentee-application-item {
+    flex-direction: column;
+
+    .mentee-img-application {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+
+    .mentee-btn-view-detail-application {
+      margin-bottom: 10px;
+    }
+  }
+
+  .mentee-img-application {
+    width: 120px;
+    height: 120px;
+  }
 }
 
-.btn-view-detail-application {
-  margin-right: 10px;
+@media (max-width: 768px) {
+  .applications-container {
+    padding: 20px;
+  }
+
+  .mentee-applications-list {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .mentee-application-item {
+    .mentee-img-application {
+      width: 100px;
+      height: 100px;
+    }
+
+    .mentee-btn-payment,
+    .mentee-btn-view-detail-application {
+      width: 100%;
+      font-size: 14px;
+    }
+  }
+
+  .mentee-img-application {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 576px) {
+  .applications-container {
+    padding: 15px;
+  }
+
+  .mentee-applications-list {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .mentee-application-item {
+    .mentee-img-application {
+      width: 80px;
+      height: 80px;
+    }
+
+    .mentee-btn-payment,
+    .mentee-btn-view-detail-application {
+      font-size: 12px;
+    }
+  }
+
+  .mentee-img-application {
+    width: 80px;
+    height: 80px;
+  }
 }

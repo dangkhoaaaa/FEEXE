@@ -85,3 +85,60 @@
 .login-redirect {
   margin-top: 30px;
 }
+
+@media only screen and (max-width: 768px) {
+  .sign-up_mentee {
+    flex-direction: column;
+    width: 90%;
+    margin: 20px auto;
+
+    .sign-up_img {
+      width: 100%;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      padding: 10px 0;
+      img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    .sign-up_form {
+      width: 100%;
+      padding: 20px 40px;
+    }
+  }
+
+  .back-btn {
+    margin-left: 5%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .sign-up_mentee {
+    width: 100%;
+    margin: 10px auto;
+
+    .sign-up_img {
+      img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    .sign-up_form {
+      padding: 10px 20px;
+    }
+  }
+
+  .back-btn {
+    margin-left: 2%;
+    padding: 5px 10px;
+  }
+
+  .sign-up_btn {
+    padding: 6px;
+  }
+}
