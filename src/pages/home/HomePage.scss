@@ -1,6 +1,24 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  flex: 1;
+}
+
 .home_container {
   background-color: #274a79;
   height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .home_banner {
@@ -11,38 +29,9 @@
   padding: 10px;
 }
 
-.banner-intro {
-  width: 50%;
-  height: 100%;
-  color: #fff;
-  font-family: "Cabin", sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  h1 {
-    margin: 0;
-    font-size: 60px;
-    text-align: center;
-  }
-
-  mat-icon {
-    vertical-align: middle;
-  }
-
-  p {
-    display: flex;
-    margin: 0;
-  }
-  mat-icon {
-    width: 100px;
-  }
-}
-
-.banner-img {
-  width: 50%;
-  height: 100%;
-  padding-top: 30px;
+.banner-img-main {
+  width: 100%;
+  max-width: 100%; /* Ensure it doesn't overflow */
 }
 
 .signin-btn,
@@ -64,15 +53,129 @@
   }
 }
 
-.FontAwesomeIcon {
-  margin-right: 5px;
+@media (max-width: 768px) {
+  .home_banner {
+    width: 90%;
+    padding: 5px;
+  }
+
+  .signin-btn,
+  .login-btn {
+    width: 70px;
+    padding: 5px 15px;
+    height: 25px;
+    font-size: 14px;
+  }
 }
 
-.logo-img {
-  width: 400px;
-  height: 400px;
+@media (max-width: 480px) {
+  .home_banner {
+    width: 95%;
+    padding: 2px;
+  }
+
+  .signin-btn,
+  .login-btn {
+    width: 60px;
+    padding: 5px 10px;
+    height: 20px;
+    font-size: 12px;
+  }
 }
 
-.banner-img-main {
+.footer-container {
+  position: inherit;
+  bottom: 0;
   width: 100%;
+  color: #000;
+  height: 285px;
+  padding: 40px;
+  display: flex;
+  border-bottom: 1px solid #f9fdff;
+}
+
+.footer-logo {
+  width: 200px;
+  height: 200px;
+}
+
+.contact {
+  flex: 1;
+  padding-left: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: larger;
+  div {
+    margin: 8px 0;
+  }
+}
+
+.social-media {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  gap: 20px; /* Adjust spacing between icons as needed */
+  margin-top: 20px;
+}
+
+.icons a {
+  color: inherit; /* Ensures the icons use the color prop passed to Footer */
+  text-decoration: none;
+}
+
+.copyright-container {
+  background-color: #274a79;
+  padding: 10px 0;
+  text-align: center;
+  color: #fff;
+  display: flex;
+}
+
+.copyright {
+  flex: 1;
+}
+
+.all-rights-reserved {
+  flex: 1;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 20px;
+  }
+
+  .contact {
+    padding-left: 0;
+    align-items: center;
+  }
+
+  .footer-logo {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 10px;
+  }
+
+  .footer-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .contact {
+    font-size: medium;
+  }
 }
