@@ -1,0 +1,87 @@
+.sign-up-mentee_container {
+  background-color: #274a79;
+}
+
+.signup-mentee-container {
+  h2 {
+    text-align: center;
+    color: #fff !important;
+    text-shadow: 10px 10px 10px #000;
+  }
+}
+
+.back-btn {
+  background-color: #6adbd7;
+  margin-left: 10%;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+.input-field {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up_mentee {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: fit-content;
+  background-color: #fff;
+  margin: 50px auto 30px auto;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .sign-up_img {
+    width: 40%;
+    height: auto;
+    background-color: #5e95cc;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 200px;
+      height: 200px;
+      background-color: #fff;
+      border-radius: 100px;
+      padding: 20px;
+      border: 10px solid #274a79;
+    }
+  }
+
+  .sign-up_form {
+    width: 60%;
+    height: 100%;
+    padding: 50px 100px;
+  }
+}
+
+.label {
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+}
+
+.sign-up_btn {
+  width: 100%;
+  background-color: #5e95cc;
+  border: 1px solid #274a79;
+  padding: 8px;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.error-message {
+  color: #ff0e0e;
+}
+
+.login-redirect {
+  margin-top: 30px;
+}

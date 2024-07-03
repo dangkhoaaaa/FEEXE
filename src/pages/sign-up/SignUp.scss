@@ -1,0 +1,80 @@
+.sign-up_container {
+  background-color: #274a79;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  h1 {
+    text-align: center;
+    color: #fff;
+    text-shadow: 10px 10px 10px #000;
+  }
+}
+
+.signin-btn {
+  background-color: #8dc9c0;
+  color: #fff;
+  height: 30px;
+  margin: 0 5px;
+  border-radius: 16px;
+  width: 85px;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #97d9cf;
+    color: #000;
+  }
+}
+
+.signup-button {
+  width: 80%;
+  height: 50%;
+  padding: 100px 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 70px auto;
+  border: 5px solid #6adbd7;
+  border-radius: 150px;
+
+  .signup-mentee,
+  .signup-mentor {
+    padding: 10px 30px;
+    background-color: #6adbd7; /* Màu nền cho nút */
+    border: none; /* Bỏ viền */
+    color: #ffffff; /* Màu chữ */
+    padding: 30px 32px; /* Kích thước padding */
+    text-align: center; /* Canh giữa chữ */
+    text-decoration: none; /* Bỏ gạch chân */
+    display: inline-block; /* Hiển thị như inline-block */
+    font-size: 16px; /* Kích thước chữ */
+    margin: 4px 2px; /* Lề */
+    transition: transform 0.3s, box-shadow 0.3s; /* Hiệu ứng chuyển đổi */
+    border-radius: 60px; /* Bo góc */
+    font-weight: 700;
+
+    &:hover {
+      transform: translateY(-10px); /* Dịch chuyển lên trên */
+      box-shadow: 10px 8px 16px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+      cursor: pointer; /* Con trỏ chuột khi hover */
+      color: #274a79;
+    }
+
+    span {
+      margin-left: 5px;
+    }
+  }
+}
+
+.signup-form {
+  padding: 50px;
+  h2 {
+    text-align: center;
+    color: #fff !important;
+    text-shadow: 10px 10px 10px #000;
+  }
+}
+
+.signup-guide {
+  color: #fff;
+}

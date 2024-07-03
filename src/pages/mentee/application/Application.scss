@@ -1,0 +1,90 @@
+.applications-container {
+  width: 100%;
+  height: fit-content;
+  padding: 50px;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.applications-list {
+  width: 80%;
+  height: fit-content;
+  margin: 0 auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: #6adbd7;
+  gap: 20px;
+  border-radius: 10px;
+}
+
+.btn-find-mentor {
+  text-decoration: none;
+  background-color: #274a79;
+  color: #fff;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.application-item {
+  width: auto;
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  background-color: #fff;
+
+  .status {
+    padding: 3px 10px;
+  }
+}
+
+.pending-status {
+  background-color: #fcf462;
+  font-weight: 600;
+}
+
+.accept-status {
+  background-color: #4dfe44;
+  font-weight: 600;
+}
+
+.denied-status {
+  background-color: #fa2929;
+  font-weight: 600;
+}
+
+.paid-status {
+  background-color: #4dfe44;
+  font-weight: 600;
+}
+
+.no-applications-list {
+  width: 80%;
+  height: fit-content;
+  border: 1px solid #274a79;
+  margin: 0 auto;
+  padding: 30px;
+  text-align: center;
+}
+
+.img-application {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #274a79;
+  border-radius: 80px;
+  margin-right: 50px;
+}
+
+.btn-payment {
+  background-color: #274a79;
+  padding: 0 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.btn-view-detail-application {
+  margin-right: 10px;
+}

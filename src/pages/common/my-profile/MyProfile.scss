@@ -1,0 +1,137 @@
+.header-my-profile {
+  background-color: #274a79;
+  width: 100%;
+  height: 350px;
+  position: relative;
+}
+
+.my-profile-detail-img {
+  width: 220px;
+  height: 220px;
+  border-radius: 110px; /* Make the image circular */
+  position: absolute; /* Absolute positioning */
+  bottom: -50px; /* Half of the image height to overlap */
+  left: 15%; /* Center the image horizontally */
+  transform: translateX(
+    -50%
+  ); /* Center the image horizontally by adjusting its position */
+
+  border: 4px solid #274a79;
+}
+
+.body-my-profile {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  .myprofile-content {
+    width: 60%;
+    padding: 0 30px;
+  }
+
+  .myprofile-tabs {
+    width: 40%;
+  }
+}
+
+.my-profile-main {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #274a79;
+}
+
+.my-profile-detail {
+  flex: 1;
+  padding: 0px 50px;
+}
+
+.my-profile-skill {
+  flex: 1;
+  background-color: #274a79;
+}
+
+.my-profile-intro,
+.my-about-content {
+  white-space: normal; /* Ensures normal text wrapping */
+  word-break: break-word; /* Breaks words to prevent overflow */
+  overflow-wrap: break-word; /* Ensures long words are broken to fit within the container */
+  max-width: 100%; /* Ensures the text does not overflow the container */
+  display: block;
+}
+
+.my-profile-about {
+  padding: 40px 80px;
+  border-bottom: 1px solid #274a79;
+}
+
+.account-name {
+  position: absolute; /* Absolute positioning */
+  bottom: 0px; /* Half of the image height to overlap */
+  left: 25%;
+  color: #fff;
+}
+
+.btn-update-profile {
+  padding: 5px 20px;
+  background-color: #274a79;
+  color: #fff;
+}
+
+.change-pass-header {
+  background-color: #274a79;
+}
+
+.accordion-button.collapsed {
+  background-color: #6adbd7 !important;
+  font-weight: 600;
+}
+
+.accordion-button {
+  font-weight: 600;
+}
+
+.update-profile {
+  input,
+  textarea {
+    width: 100%;
+  }
+}
+
+.change-password {
+  .input-field {
+    margin-bottom: 15px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 12px;
+    }
+  }
+
+  .btn-change-password {
+    background-color: #274a79;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+
+    &:hover {
+      background-color: #6adbd7;
+    }
+  }
+}

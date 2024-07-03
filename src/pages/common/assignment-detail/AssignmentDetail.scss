@@ -1,0 +1,130 @@
+.assignment-detail-container {
+  display: flex;
+  flex-direction: column;
+
+  .assign-title {
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    font-weight: 900;
+    background-color: #6adbd7;
+  }
+}
+
+.assignment-detail {
+  display: flex;
+  height: fit-content;
+  background-color: #b2cdf0;
+  color: #274a79;
+  box-shadow: 5px 5px 10px #274a79;
+}
+
+.submission-container {
+  padding: 50px;
+}
+
+.no-data {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: #ff635b;
+}
+
+.assignment-author {
+  flex: 1;
+  font-size: 2rem;
+  border-right: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.assignment-infor {
+  flex: 1;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  color: #274a79 !important;
+
+  ul {
+    list-style: none;
+  }
+}
+
+.btn-add-submission {
+  padding: 20px 50px;
+  border-radius: 30px;
+}
+
+.download-file {
+  padding: 5px 50px;
+  background-color: #6adbd7;
+  border-radius: 5px;
+  color: #274a79;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 700;
+}
+
+.list-group-item {
+  padding: 20px;
+}
+
+.btn-add-submission {
+  margin-top: 10px;
+  padding: 5px 50px !important;
+}
+
+.add-submission-container {
+  border: 2px dashed #274a79;
+  padding: 20px;
+}
+
+.submissions-list {
+  border: 2px dashed #274a79;
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+}
+
+.list-group {
+  width: 100%;
+}
+
+.submission-item {
+  height: fit-content;
+  margin: 0 auto;
+  border: 1px solid #274a79;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #274a79;
+  width: 400px;
+}
+
+.ungraded {
+  color: #ff635b;
+}
+
+.graded {
+  color: #00c96e;
+}
+
+.list-submited-infor {
+  margin-top: 10px;
+}
+
+.btn-grade {
+  padding: 0 50px;
+  background-color: #b2cdf0;
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

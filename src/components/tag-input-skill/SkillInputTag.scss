@@ -1,0 +1,67 @@
+.skill-input-tag-container {
+  position: relative;
+  width: 70%;
+  margin-top: 50px;
+  padding: 30px;
+  border: 1px solid #274a79;
+}
+
+.selected-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 10px 0;
+}
+
+.skill-tag {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  padding: 5px 20px;
+  background-color: #6adbd7;
+  border-radius: 30px;
+  color: #274a79;
+  font-weight: 600;
+}
+
+.skill-tag button {
+  background: none;
+  border: none;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+.skills-dropdown {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.skill-item-search {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.skill-item-search:hover {
+  background-color: #f0f0f0;
+}
+
+.btn-update-skill {
+  margin-top: 20px;
+  padding: 5px 20px;
+  background-color: #274a79;
+  color: #fff;
+  font-weight: 600;
+}
