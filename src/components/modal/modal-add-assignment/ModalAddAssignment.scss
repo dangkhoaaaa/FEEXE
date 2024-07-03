@@ -1,0 +1,47 @@
+.input-group-text,
+.form-control {
+  height: calc(1.5em + 0.75rem + 2px); /* Adjust the height as needed */
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.input-group-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-control {
+  display: flex;
+  align-items: center;
+}
+
+.modal-header-custom {
+  background-color: #274a79;
+  color: #fff;
+}
+
+.upload-ass-file {
+  margin-top: 20px;
+}
+
+.error-message {
+  display: block !important;
+}
+
+.btn-close {
+  font-size: x-large;
+
+  &:hover {
+    background-color: #3c6aa5 !important;
+  }
+}
+
+.logo-modal {
+  width: 50px;
+  height: auto;
+  margin-right: 20px;
+}

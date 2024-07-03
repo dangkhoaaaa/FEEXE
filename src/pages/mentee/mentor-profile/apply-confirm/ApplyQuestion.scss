@@ -1,0 +1,42 @@
+.apply-title {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.apply-question-container {
+  height: 100vh;
+}
+
+.questions-container {
+  width: 80%;
+  height: fit-content;
+  margin: 50px auto;
+  background-color: #274a79;
+  border-radius: 10px;
+  padding: 50px 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-field.question {
+  width: 80%;
+  margin-top: 10px;
+
+  label {
+    padding: 5px 20px;
+    background-color: #6adbd7;
+    font-weight: 600;
+  }
+}
+
+.btn-submit-answer {
+  background-color: #6adbd7;
+  font-weight: 600;
+  padding: 5px 20px;
+
+  &:hover {
+    color: #274a79;
+  }
+}
