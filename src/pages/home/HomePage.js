@@ -10,10 +10,10 @@ function HomePage() {
     <div className="home_container">
       <HeaderHome>
         <Link className="login-btn" to="/signin">
-          Đăng nhập
+          Sign In
         </Link>
         <Link className="signin-btn" to="/signup">
-          Đăng ký
+          Sign Up
         </Link>
       </HeaderHome>
       <div className="home_banner">

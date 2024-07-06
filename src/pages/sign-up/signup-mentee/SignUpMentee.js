@@ -93,7 +93,7 @@ function SignUpMentee() {
             <HeaderHome />
 
             <div className='signup-mentee-container'>
-                <h2>Sign up as a mentee</h2>
+                <h2>Sign up as a Mentee</h2>
                 <div className='sign-up_mentee'>
                     <div className='sign-up_img'>
                         <Link to='/'>
@@ -149,22 +149,22 @@ function SignUpMentee() {
                         {errors.apiError && <div className='error-message'>{errors.apiError}</div>}
                         <div className='password-requirements'>
                             <small className={`requirement ${passwordValidations.length ? 'valid' : ''}`}>
-                                {passwordValidations.length && <FontAwesomeIcon icon={faCheck} />} Mật khẩu cần hơn 6 ký tự
+                                {passwordValidations.length && <FontAwesomeIcon icon={faCheck} />} Password must be longer than 6 characters
                             </small><br />
                             <small className={`requirement ${passwordValidations.number ? 'valid' : ''}`}>
-                                {passwordValidations.number && <FontAwesomeIcon icon={faCheck} />} Mật khẩu có số
+                                {passwordValidations.number && <FontAwesomeIcon icon={faCheck} />} Password must contain a number
                             </small><br />
                             <small className={`requirement ${passwordValidations.uppercase ? 'valid' : ''}`}>
-                                {passwordValidations.uppercase && <FontAwesomeIcon icon={faCheck} />} Mật khẩu có chữ hoa
+                                {passwordValidations.uppercase && <FontAwesomeIcon icon={faCheck} />} Password must contain an uppercase letter
                             </small><br />
                             <small className={`requirement ${passwordValidations.lowercase ? 'valid' : ''}`}>
-                                {passwordValidations.lowercase && <FontAwesomeIcon icon={faCheck} />} Mật khẩu có chữ thường
+                                {passwordValidations.lowercase && <FontAwesomeIcon icon={faCheck} />} Password must contain a lowercase letter
                             </small>
                         </div>
                         {errors.duplicatedError && <small className='error-message'>{errors.duplicatedError}</small>}
-                        <button className='sign-up_btn'>Đăng ký</button>
+                        <button className='sign-up_btn'>Sign Up</button>
                         <div className='login-redirect'>
-                            <p>Bạn đã có tài khoản? <Link to='/signin'>Đăng nhập</Link></p>
+                            <p>Already have an account? <Link to='/signin'>Sign In</Link></p>
                         </div>
                     </form>
                 </div>
@@ -173,6 +173,7 @@ function SignUpMentee() {
             <Footer backgroundColor={'#274A79'} color={'#F9FDFF'} />
             <ToastContainer />
         </div>
+
     );
 }
 

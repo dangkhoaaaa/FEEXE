@@ -150,9 +150,8 @@
   }
 
   .mentor-item {
-    flex-direction: column;
-    align-items: flex-start;
     padding: 10px;
+    width: 60%;
   }
 
   .mentor-item-infor {
@@ -179,6 +178,7 @@
 
   .mentor-item {
     padding: 10px;
+    width: 80%;
   }
 
   .mentor-item-infor {
@@ -207,6 +207,8 @@
   }
 
   .mentor-item {
+    flex-direction: column;
+    align-items: flex-start;
     padding: 20px;
   }
 

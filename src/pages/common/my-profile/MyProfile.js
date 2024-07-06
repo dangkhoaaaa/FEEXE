@@ -12,6 +12,9 @@ import altImg from "../../../assets/image/noImage.png";
 import SkillInputTag from "../../../components/tag-input-skill/SkillInputTag";
 import SkillsList from "../../../components/mentee/mentor-skill/MentorSkills";
 import NavStaff from "../../../components/Nav-staff/NavStaff";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCameraRetro } from "@fortawesome/free-solid-svg-icons";
+import ModalUpdateAvatar from "../../../components/modal/modal-update-avatar/ModalUpdateAvatar";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -53,7 +56,6 @@ const indexToTabName = {
 export default function MyProfile() {
   const [myProfile, setMyProfile] = useState({});
   const [formState, setFormState] = useState({
-    profilePic: null,
     fullName: "",
     phoneNumber: "",
     bio: "",
@@ -71,6 +73,16 @@ export default function MyProfile() {
   const [errors, setErrors] = useState({});
   const role = localStorage.getItem("role");
   const [success, setSuccess] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedImage(URL.createObjectURL(file));
+      setShowModal(true);
+    }
+  };
 
   const fetchAPI = () => {
     axiosInstance
@@ -80,7 +92,6 @@ export default function MyProfile() {
         const data = response.data.data;
         setMyProfile(data);
         setFormState({
-          profilePic: data.profilePic || null,
           fullName: data.fullName || "",
           phoneNumber: data.phoneNumber || "",
           bio: data.bio || "",
@@ -117,15 +128,6 @@ export default function MyProfile() {
     setSuccess(false);
   };
 
-  const handleFileChange = (event) => {
-    if (event.target.files[0]) {
-      setFormState({
-        ...formState,
-        profilePic: event.target.files[0],
-      });
-    }
-  };
-
   const handlePasswordChange = (event) => {
     const { name, value } = event.target;
     setPasswordState({
@@ -140,12 +142,6 @@ export default function MyProfile() {
     event.preventDefault();
 
     const formData = new FormData();
-    if (formState.profilePic) {
-      formData.append("profilePic", formState.profilePic);
-    } else {
-      formData.append("profilePic", myProfile.profilePic);
-    }
-
     formData.append("fullName", formState.fullName);
     formData.append("phoneNumber", formState.phoneNumber);
     formData.append("bio", formState.bio);
@@ -162,7 +158,7 @@ export default function MyProfile() {
       .catch((error) => {
         console.log(error);
         if (error.response && error.response.data) {
-          setErrors(error.response.data.errors);
+          setErrors(error.response.data.errors || {});
           console.log(error.response.data.errors);
         } else {
           console.error("There was an error updating the profile!", error);
@@ -197,11 +193,20 @@ export default function MyProfile() {
       .catch((error) => {
         console.log(error);
         if (error.response && error.response.data) {
-          setErrors(error.response.data);
+          setErrors(error.response.data.errors || {});
         } else {
           console.error("There was an error changing the password!", error);
         }
       });
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedImage(null);
+    const fileInput = document.getElementById("image-upload");
+    if (fileInput) {
+      fileInput.value = "";
+    }
   };
 
   return (
@@ -220,7 +225,29 @@ export default function MyProfile() {
             className="my-profile-detail-img"
             alt="Profile"
           />
+          <FontAwesomeIcon
+            className="camera-icon"
+            size="2x"
+            icon={faCameraRetro}
+            style={{ color: "#000" }}
+            onClick={() => document.getElementById("image-upload").click()}
+          />
           <h2 className="account-name">{myProfile?.fullName || ""}</h2>
+          <input
+            type="file"
+            id="image-upload"
+            style={{ display: "none" }}
+            accept="image/*"
+            onChange={handleImageUpload}
+          />
+
+          {showModal && (
+            <ModalUpdateAvatar
+              onClose={handleCloseModal}
+              selectedImage={selectedImage}
+              onSetProfile={setMyProfile}
+            />
+          )}
         </div>
         <Box
           sx={{ width: "100%", bgcolor: "background.paper", marginTop: "40px" }}
@@ -278,19 +305,6 @@ export default function MyProfile() {
                     <h2>Update Profile</h2>
                     <form onSubmit={handleSubmit}>
                       <div className="input-field">
-                        <label>Profile Picture:</label>
-                        <input
-                          type="file"
-                          name="profilePic"
-                          onChange={handleFileChange}
-                        />
-                        {errors.profilePic && (
-                          <span className="error-message">
-                            {errors.profilePic[0]}
-                          </span>
-                        )}
-                      </div>
-                      <div className="input-field">
                         <label>Full Name:</label>
                         <input
                           type="text"
@@ -298,9 +312,9 @@ export default function MyProfile() {
                           value={formState.fullName || ""}
                           onChange={handleInputChange}
                         />
-                        {errors.FullName && (
+                        {errors.fullName && (
                           <span className="error-message">
-                            {errors.FullName[0]}
+                            {errors.fullName[0]}
                           </span>
                         )}
                       </div>
@@ -401,9 +415,9 @@ export default function MyProfile() {
                           value={passwordState.newPassword}
                           onChange={handlePasswordChange}
                         />
-                        {errors.errors && errors.errors.NewPassword && (
+                        {errors.newPassword && (
                           <span className="error-message">
-                            {errors.errors.NewPassword[0]}
+                            {errors.newPassword[0]}
                           </span>
                         )}
                       </div>

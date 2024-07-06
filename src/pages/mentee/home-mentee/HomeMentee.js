@@ -31,7 +31,7 @@ export default function MenteeHomePage() {
     useEffect(() => {
         axiosInstance.get(`${RYI_URL}/Mentor/recommendation?PageSize=100`)
             .then(response => {
-                setMentorRecommend(response.data.data.data);  // Đặt dữ liệu nhận được vào state
+                setMentorRecommend(response.data.data.data);
                 console.log(response.data.data.data);
             })
             .catch(error => {
@@ -77,16 +77,17 @@ export default function MenteeHomePage() {
                             <p>{myProfile && myProfile.fullName}</p>
                         </span>
                         <span>
-                            <h2>Chào mừng bạn đến với Tỏ Tê!<br /> Hãy khám phá ứng dụng nhé.</h2>
+                            <h2>Welcome to Tỏ Tê!<br /> Feel free to explore the app.</h2>
                             <p style={{ overflowWrap: 'break-word', marginLeft: '50px' }}>
-                                Nếu bạn truy cập lần đầu hãy vào
+                                If this is your first time visiting, please go to
                                 <Link to='/my-profile?tab=updateProfile' className='profile-setting'> Profile Setting</Link>
-                                để cập nhật profile để mentees có thể xem profile và apply package của bạn nhé.
+                                to update your profile so that mentees can view your profile and apply for your packages.
                             </p>
                         </span>
+
                     </div>
                     <div className="mentor-propose-list">
-                        <p className="propose">Đề xuất mentors:</p>
+                        <p className="propose">Recommended mentors:</p>
 
                         <Carousel className="mentors-propose" data-bs-theme="dark" interval={2000} controls={false} wrap={true}>
                             {groupedProfiles.map((group, index) => (

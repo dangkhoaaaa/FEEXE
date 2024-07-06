@@ -29,6 +29,8 @@ import AdminManagement from '../pages/admin/AdminManagement';
 import Notification from '../pages/common/notification/Notification';
 import RoleRoute from './RoleRoute';
 import PublicRoute from './PublicRoute';
+import ForgotPass from '../pages/forgot-password/ForgotPass';
+import ResetPassword from '../pages/reset-password/ResetPassword';
 
 const AppRouter = () => {
     return (
@@ -44,6 +46,9 @@ const AppRouter = () => {
                     <Route path="/signup/mentor" element={<SignUpMentor />} />
                     <Route path="/mentee-signup-success" element={<SignupSuccess />} />
                     <Route path="/mentor-signup-success" element={<SignupMentorSuccess />} />
+                    <Route path="/forgot-password" element={<ForgotPass />} />
+                    <Route path="/reset-password" element={<ResetPassword />} />
+
                 </Route>
 
                 {/* Mentee Routes */}

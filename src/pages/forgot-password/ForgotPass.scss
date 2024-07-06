@@ -1,0 +1,61 @@
+.forgot-password {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  @media (max-width: 768px) {
+    max-width: 90%;
+  }
+}
+
+.forgot-password-title {
+  font-size: 1.2rem;
+  color: #274a79;
+  margin-bottom: 20px;
+}
+
+.forgot-password-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  button {
+    background-color: #6adbd7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #5ab0c0;
+    }
+  }
+
+  .forgot-password-error {
+    color: #ff2717;
+    margin-top: 10px;
+  }
+}
+
+.forgot-password-message {
+  font-size: 1rem;
+  color: #274a79;
+  margin-top: 20px;
+}

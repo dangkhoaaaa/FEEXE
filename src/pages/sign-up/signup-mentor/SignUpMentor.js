@@ -272,9 +272,8 @@ function SignUpMentor() {
                 name="category"
                 value={formData.category}
                 onChange={handleChange}
-                className={`input ${
-                  errors.category ? "input-error" : "select"
-                }`}
+                className={`input ${errors.category ? "input-error" : "select"
+                  }`}
               >
                 <option value="" disabled>
                   Select a category
@@ -340,9 +339,8 @@ function SignUpMentor() {
                 value={formData.achievement}
                 onChange={handleChange}
                 placeholder="Please type at least 50 words"
-                className={`textarea ${
-                  errors.achievement ? "input-error" : ""
-                }`}
+                className={`textarea ${errors.achievement ? "input-error" : ""
+                  }`}
               />
               {errors.achievement && (
                 <span className="error-message">{errors.achievement}</span>
@@ -380,9 +378,8 @@ function SignUpMentor() {
                   name="descriptionOfPlan"
                   value={formData.descriptionOfPlan}
                   onChange={handleChange}
-                  className={`input ${
-                    errors.descriptionOfPlan ? "input-error" : ""
-                  }`}
+                  className={`input ${errors.descriptionOfPlan ? "input-error" : ""
+                    }`}
                 />
                 {errors.descriptionOfPlan && (
                   <span className="error-message">
@@ -402,9 +399,8 @@ function SignUpMentor() {
                   name="callPerMonth"
                   value={formData.callPerMonth}
                   onChange={handleChange}
-                  className={`input ${
-                    errors.callPerMonth ? "input-error" : ""
-                  }`}
+                  className={`input ${errors.callPerMonth ? "input-error" : ""
+                    }`}
                 />
                 {errors.callPerMonth && (
                   <span className="error-message">{errors.callPerMonth}</span>
@@ -424,9 +420,8 @@ function SignUpMentor() {
                   name="durationOfMeeting"
                   value={formData.durationOfMeeting}
                   onChange={handleChange}
-                  className={`input ${
-                    errors.durationOfMeeting ? "input-error" : ""
-                  }`}
+                  className={`input ${errors.durationOfMeeting ? "input-error" : ""
+                    }`}
                 />
                 {errors.durationOfMeeting && (
                   <span className="error-message">
@@ -480,7 +475,7 @@ function SignUpMentor() {
             <button className="sign-up_btn">Sign Up</button>
             <div className="login-redirect">
               <p>
-                Bạn đã có tài khoản? <Link to="/signin">Đăng nhập</Link>
+                Already have an account? <Link to="/signin">Sign in</Link>
               </p>
             </div>
           </form>

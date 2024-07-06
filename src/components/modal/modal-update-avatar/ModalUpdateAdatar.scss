@@ -1,0 +1,28 @@
+// src/components/modal-update-avatar/ModalUpdateAvatar.scss
+.modal-update-avatar {
+  .btn-update-avatar {
+    background-color: #274a79;
+    color: #f9fdff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 12px;
+  }
+
+  .update-success {
+    color: green;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .rounded-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover; /* Ensure the modal image is not stretched */
+  }
+}

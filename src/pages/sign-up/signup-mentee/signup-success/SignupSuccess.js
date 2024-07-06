@@ -42,13 +42,13 @@ export default function SignupSuccess() {
             <div className='signup-success-container'>
                 <div className='signup-success-background'>
                     <h2>
-                        Chúc mừng bạn đã đăng ký thành công! <FontAwesomeIcon icon={faThumbsUp} />
+                        Congratulations on successfully signing up! <FontAwesomeIcon icon={faThumbsUp} />
                     </h2>
-                    <p><FontAwesomeIcon icon={faFlag} /> Bạn còn thêm một bước nữa để hoàn thành.</p>
+                    <p><FontAwesomeIcon icon={faFlag} /> You have one more step to complete.</p>
                     <p>
-                        <small>Hãy vào Email bạn đã đăng ký để xác nhận thành viên và quay lại trang</small>
-                        <Link className='btnsignin' to="/signin">đăng nhập</Link>
-                        <small>để khám phá ứng dụng nhé.</small>
+                        <small>Please check the email you registered with to confirm your membership and then return to the</small>
+                        <Link className='btnsignin' to="/signin">sign-in</Link>
+                        <small>page to explore the app.</small>
                     </p>
                     <p>Thank you so much. <FontAwesomeIcon icon={faFaceGrinWink} /></p>
                 </div>
@@ -56,5 +56,6 @@ export default function SignupSuccess() {
             <Footer backgroundColor={'#274A79'} color={'#F9FDFF'} />
             <ToastContainer />
         </div>
+
     );
 }

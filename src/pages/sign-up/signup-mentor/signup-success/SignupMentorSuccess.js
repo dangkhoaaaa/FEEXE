@@ -12,15 +12,15 @@ export default function SignupMentorSuccess() {
             <HeaderHome />
             <div className='signup-success-container'>
                 <div className='signup-success-background'>
-                    <h2>Chúc mừng bạn đã đăng ký thành công! <FontAwesomeIcon icon={faThumbsUp} /></h2>
-                    <p><FontAwesomeIcon icon={faFlag} /> Bạn cần chờ phê duyệt bởi quản trị viên.</p>
-                    <p>Hãy chờ chúng tôi xem xét đăng ký của bạn và trả lời sớm nhất nhé.</p>
-                    <p>Chúng tôi sẽ cung cấp mật khẩu ngay khi phê quyệt để bạn có thể <Link className='btnsignin' to="/signin">đăng nhập</Link></p>
+                    <h2>Congratulations on successfully signing up! <FontAwesomeIcon icon={faThumbsUp} /></h2>
+                    <p><FontAwesomeIcon icon={faFlag} /> You need to wait for approval by the administrator.</p>
+                    <p>Please wait while we review your registration and respond as soon as possible.</p>
+                    <p>We will provide a password once your registration is approved so you can <Link className='btnsignin' to="/signin">sign in</Link>.</p>
                     <p>Thank you so much. <FontAwesomeIcon icon={faFaceGrinWink} /></p>
                 </div>
-
             </div>
             <Footer backgroundColor={'#274A79'} color={'#F9FDFF'} />
         </div>
+
     )
 }

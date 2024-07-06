@@ -1,5 +1,3 @@
-// NavMentor.js
-
 import React, { useState, useEffect, useRef } from "react";
 import "./NavMentor.scss";
 import { Link, useNavigate } from "react-router-dom";
@@ -22,7 +20,6 @@ import altImg from "../../assets/image/noImage.png";
 import { getUnreadNoti, logout, updateReadNoti } from "../../services/service";
 import * as signalR from "@microsoft/signalr";
 
-// const backendURL = process.env.REACT_APP_API_URL;
 const backendURL = "https://totevn.azurewebsites.net";
 
 export default function NavMentor({ activePage }) {
@@ -67,7 +64,6 @@ export default function NavMentor({ activePage }) {
     axiosInstance
       .get(`${RYI_URL}/Account/my-profile`)
       .then((response) => {
-        console.log(response);
         const data = response.data.data;
         setMyProfile(data); // Access the nested data
       })
@@ -79,7 +75,6 @@ export default function NavMentor({ activePage }) {
   const fetchNotifications = () => {
     getUnreadNoti()
       .then((res) => {
-        console.log("unread", res);
         setNoti(res.data.data);
       })
       .catch((error) => {
@@ -95,11 +90,8 @@ export default function NavMentor({ activePage }) {
   const handleLogout = () => {
     logout()
       .then((response) => {
-        console.log("Logout successful:", response);
-        // Delete the token cookie
         document.cookie =
           "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        // Clear local storage role
         localStorage.removeItem("role");
         navigate("/signin");
       })
@@ -111,9 +103,7 @@ export default function NavMentor({ activePage }) {
   const handleClickNoti = () => {
     setNoti(0);
     updateReadNoti()
-      .then((res) => {
-        console.log("update noti", res);
-      })
+      .then((res) => { })
       .catch((err) => {
         console.log(err);
       });
@@ -122,86 +112,77 @@ export default function NavMentor({ activePage }) {
 
   return (
     <>
-      <div className="nav-mentee-container">
-        <Link className="nav-item" to="/mentor-homepage">
-          <img className="logo-tote" src={logo} alt="Logo Tote" />
+      <div className="mentor-nav-container">
+        <Link className="mentor-nav-item" to="/mentor-homepage">
+          <img className="mentor-logo-tote" src={logo} alt="Logo Tote" />
         </Link>
-        <nav className="nav-items">
+        <nav className="mentor-nav-items">
           <Link
-            className={`nav-item ${activePage === "home" ? "active-page" : ""}`}
+            className={`mentor-nav-item ${activePage === "home" ? "mentor-active-page" : ""}`}
             to="/mentor-homepage"
           >
             <FontAwesomeIcon icon={faHouse} />
-            <div>Home</div>
+            <span>Home</span>
           </Link>
           <Link
-            className={`nav-item ${activePage === "workspace" ? "active-page" : ""
-              }`}
+            className={`mentor-nav-item ${activePage === "workspace" ? "mentor-active-page" : ""}`}
             to="/mentor/workspace"
           >
             <FontAwesomeIcon icon={faPlaceOfWorship} />
-            <div>My Workspace</div>
+            <span>My Workspace</span>
           </Link>
           <Link
-            className={`nav-item ${activePage === "application" ? "active-page" : ""
-              }`}
+            className={`mentor-nav-item ${activePage === "application" ? "mentor-active-page" : ""}`}
             to="/mentor/application"
           >
             <FontAwesomeIcon icon={faA} />
-            <div>Application</div>
+            <span>Application</span>
           </Link>
           <Link
-            className={`nav-item ${activePage === "messenger" ? "active-page" : ""
-              }`}
+            className={`mentor-nav-item ${activePage === "messenger" ? "mentor-active-page" : ""}`}
             to="/message"
           >
             <FontAwesomeIcon icon={faCommentDots} />
-            <div>Messenger</div>
+            <span>Messenger</span>
           </Link>
           <Link
-            className={`nav-item nav-item-noti ${activePage === "notification" ? "active-page" : ""
-              }`}
+            className={`mentor-nav-item nav-item-noti ${activePage === "notification" ? "mentor-active-page" : ""}`}
             to="/notification"
+            onClick={handleClickNoti}
           >
-            <div style={{ textAlign: "center" }} onClick={handleClickNoti}>
-              <FontAwesomeIcon icon={faEnvelope} />
-              <div>Notification</div>
-              <div className="noti-unread">{noti > 0 && noti}</div>
-            </div>
+            <FontAwesomeIcon icon={faEnvelope} />
+            <span>Notification</span>
+            <span className="noti-unread">{noti > 0 && noti}</span>
           </Link>
         </nav>
         {myProfile && (
-          <div className="infor-menu" onClick={toggleMenu} ref={menuRef}>
+          <div className="mentor-infor-menu" onClick={toggleMenu} ref={menuRef}>
             <img
-              className="infor-avatar"
+              className="mentor-infor-avatar"
               src={myProfile.profilePic ? myProfile.profilePic : altImg}
               alt="User Avatar"
             />
             <FontAwesomeIcon
               icon={isMenuOpen ? faChevronUp : faChevronDown}
-              className="chevron-icon"
-              style={{ color: "#6ADBD7" }}
+              className="mentor-chevron-icon"
             />
           </div>
         )}
-
         {isMenuOpen && (
-          <div className="pop-up-logout" ref={menuRef}>
+          <div className="mentor-pop-up-logout" ref={menuRef}>
             <ul>
-              <p className="header-profile-name">{myProfile.fullName}</p>
+              <p className="mentor-header-profile-name">{myProfile.fullName}</p>
               <li className="profile-setting" onClick={handleProfileSetting}>
-                {" "}
-                Profile <FontAwesomeIcon className="icon" icon={faToolbox} />
+                Profile <FontAwesomeIcon className="mentor-icon" icon={faToolbox} />
               </li>
               <li className="logout" onClick={handleLogout}>
-                Logout{" "}
-                <FontAwesomeIcon className="icon" icon={faRightFromBracket} />
+                Logout <FontAwesomeIcon className="mentor-icon" icon={faRightFromBracket} />
               </li>
             </ul>
           </div>
         )}
       </div>
-      <div className="line"></div>
+      <div className="mentor-line"></div>
     </>
   );
 }

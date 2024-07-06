@@ -55,11 +55,11 @@ export default function HomeMentor() {
             </span>
             <span>
               <h2>
-                Chào mừng bạn đến với Tỏ Tê!
-                <br /> Hãy khám phá ứng dụng nhé.
+                Welcome to Tỏ Tê!
+                <br /> Explore the app now.
               </h2>
               <p style={{ overflowWrap: "break-word", marginLeft: "50px" }}>
-                Nếu bạn truy cập lần đầu hãy vào
+                If you are visiting for the first time, please go to
                 <Link
                   to="/my-profile?tab=updateProfile"
                   className="profile-setting"
@@ -67,12 +67,12 @@ export default function HomeMentor() {
                   {" "}
                   Profile Setting
                 </Link>
-                để cập nhật profile để mentees có thể xem profile và apply
-                package của bạn nhé.
+                to update your profile so that mentees can view your profile and apply for your packages.
               </p>
             </span>
           </div>
         </div>
+
       )}
 
       <Footer backgroundColor={"#274A79"} color={"#F9FDFF"} />

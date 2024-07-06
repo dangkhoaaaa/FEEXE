@@ -8,13 +8,11 @@
 .my-profile-detail-img {
   width: 220px;
   height: 220px;
-  border-radius: 110px; /* Make the image circular */
-  position: absolute; /* Absolute positioning */
-  bottom: -50px; /* Half of the image height to overlap */
-  left: 15%; /* Center the image horizontally */
-  transform: translateX(
-    -50%
-  ); /* Center the image horizontally by adjusting its position */
+  border-radius: 110px;
+  position: absolute;
+  bottom: -50px;
+  left: 15%;
+  transform: translateX(-50%);
 
   border: 4px solid #274a79;
 }
@@ -56,10 +54,10 @@
 
 .my-profile-intro,
 .my-about-content {
-  white-space: normal; /* Ensures normal text wrapping */
-  word-break: break-word; /* Breaks words to prevent overflow */
-  overflow-wrap: break-word; /* Ensures long words are broken to fit within the container */
-  max-width: 100%; /* Ensures the text does not overflow the container */
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
   display: block;
 }
 
@@ -69,9 +67,9 @@
 }
 
 .account-name {
-  position: absolute; /* Absolute positioning */
-  bottom: 0px; /* Half of the image height to overlap */
-  left: 25%;
+  position: absolute;
+  bottom: 0px;
+  left: 30%;
   color: #fff;
 }
 
@@ -133,5 +131,166 @@
     &:hover {
       background-color: #6adbd7;
     }
+  }
+}
+
+.camera-icon {
+  position: absolute;
+  bottom: -30px;
+  left: 20%;
+  padding: 5px;
+  border: 2px solid #000;
+  border-radius: 25px;
+  background-color: #ccc;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.rounded-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 1024px) {
+  .header-my-profile {
+    height: 300px;
+  }
+
+  .my-profile-detail-img {
+    width: 180px;
+    height: 180px;
+    bottom: 15%;
+    left: 50%;
+  }
+
+  .account-name {
+    left: 40%;
+  }
+
+  .my-profile-main {
+    flex-direction: column;
+  }
+
+  .my-profile-detail {
+    padding: 0px 20px;
+  }
+
+  .camera-icon {
+    bottom: 15%;
+    left: 55%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header-my-profile {
+    height: 250px;
+  }
+
+  .my-profile-detail-img {
+    width: 160px;
+    height: 160px;
+    bottom: 20%;
+    left: 50%;
+  }
+
+  .account-name {
+    margin: 0 auto;
+  }
+
+  .my-profile-main {
+    flex-direction: column;
+  }
+
+  .my-profile-detail {
+    padding: 0px 10px;
+  }
+
+  .my-profile-skill {
+    display: none;
+  }
+
+  .update-profile,
+  .change-password {
+    padding: 5px;
+  }
+
+  .accordion {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 556px) {
+  .header-my-profile {
+    height: 200px;
+  }
+
+  .my-profile-detail-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .account-name {
+    left: 35%;
+  }
+
+  .my-profile-main {
+    flex-direction: column;
+  }
+
+  .my-profile-detail {
+    padding: 0px 5px;
+  }
+
+  .update-profile,
+  .change-password {
+    padding: 5px;
+  }
+
+  .camera-icon {
+    right: 5px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .header-my-profile {
+    height: 180px;
+  }
+
+  .my-profile-detail-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .account-name {
+    left: 33%;
+  }
+
+  .update-profile,
+  .change-password {
+    padding: 5px;
   }
 }

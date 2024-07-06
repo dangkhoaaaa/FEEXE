@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/logo/logo-tote.png"; // Import logo-tote.png
-import './HeaderHome.scss'
+import './HeaderHome.scss';
 import { Link } from "react-router-dom";
 
 function HeaderHome({ children }) {

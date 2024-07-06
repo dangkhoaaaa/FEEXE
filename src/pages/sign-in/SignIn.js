@@ -66,13 +66,13 @@ function SignIn() {
     return (
         <div className="login-container">
             <HeaderHome>
-                <Link className="signup-btn" to="/signup">Đăng ký</Link>
+                <Link className="signup-btn" to="/signup">Sign Up</Link>
             </HeaderHome>
-            <h1>Đăng nhập</h1>
+            <h1>Sign In</h1>
             <div className="login-main">
                 <div className="form-login">
                     <form action="" className="login-form" onSubmit={handleSubmit}>
-                        <h2>Chào mừng bạn đến với Tỏ Tê</h2>
+                        <h2>Welcome to Tỏ Tê</h2>
                         <div className="user">
                             <label htmlFor="email">Email:</label>
                             <input
@@ -86,7 +86,7 @@ function SignIn() {
                             />
                         </div>
                         <div className="password">
-                            <label htmlFor="password">Mật khẩu:</label>
+                            <label htmlFor="password">Password:</label>
                             <input
                                 id="password"
                                 className="input"
@@ -98,18 +98,18 @@ function SignIn() {
                             />
                         </div>
                         <small className="error-mess">{error}</small>
-                        <button type="submit" className="login-button">Đăng nhập
+                        <button type="submit" className="login-button">Sign In
                             {isLoading && <Spinner animation="border" />}
                         </button>
                         <div className="other-login">
                             <span className="seperate">
                                 <span>----------------------------</span>
-                                <span>Hoặc </span>
+                                <span>Or </span>
                                 <span>----------------------------</span>
                             </span>
-                            <Link className="forgot-pass">Quên mật khẩu?</Link>
+                            <Link className="forgot-pass" to='/forgot-password'>Forgot Password?</Link>
                             <div>
-                                <p className="no-account">Bạn chưa có tài khoản?</p>
+                                <p className="no-account">Don't have an account?</p>
                                 <div>
                                     <Link className="signup-mentee" to="/signup/mentee">Sign up as mentee</Link> or
                                     <Link className="signup-mentor" to="/signup/mentor">apply to be a mentor</Link>
@@ -124,6 +124,7 @@ function SignIn() {
             </div>
             <Footer backgroundColor={'#6ADBD7'} color={'#274a79'}></Footer>
         </div>
+
     );
 }
 

@@ -66,23 +66,24 @@ export default function Payment() {
             </HeaderHome>
             <div className='payment-container'>
                 <form className='payment-form'>
-                    <h5>Phương thức thanh toán</h5>
+                    <h5>Payment Method</h5>
                     <div className='payment-methods'>
                         <div className='payment-momo'>
-                            <input type='radio' name='momo' id='momo' />
-                            <label for='momo' className='momo'>Momo</label>
+                            <input type='radio' name='payment' id='momo' />
+                            <label htmlFor='momo' className='momo'>Momo</label>
                         </div>
                         <div className='payment-credit'>
-                            <input type='radio' name='credit' id='credit' />
-                            <label for='credit' className='credit'>Credit <FontAwesomeIcon icon={faCreditCard} /></label>
+                            <input type='radio' name='payment' id='credit' />
+                            <label htmlFor='credit' className='credit'>Credit <FontAwesomeIcon icon={faCreditCard} /></label>
                         </div>
                     </div>
                 </form>
                 <div className='payment-content'>
                     <h1>Payment <FontAwesomeIcon icon={faCommentsDollar} /></h1>
-                    <p>Hãy điền thông tin thanh toán.</p>
+                    <p>Enter your payment information.</p>
                 </div>
             </div>
+
             <Footer backgroundColor={'#274a79'} color={'#fff'} />
         </div>
     );

@@ -11,18 +11,23 @@ function SignUp() {
     return (
         <div className="sign-up_container">
             <HeaderHome>
-                <Link className="signin-btn" to="/signin">Đăng nhập</Link>
+                <Link className="signin-btn" to="/signin">Sign In</Link>
             </HeaderHome>
             <div className="signup-button">
                 <div>
-                    <h1>Đăng ký tài khoản</h1>
-                    <small className="signup-guide">Hãy chọn phương thức đăng ký</small>
+                    <h1>Sign Up for an Account</h1>
+                    <small className="signup-guide">Please choose a sign-up method</small>
                 </div>
-                <Link className="signup-mentee" to="/signup/mentee"><FontAwesomeIcon icon={faAddressCard} /> <span>Sign up as Mentee</span></Link>
-                <Link className="signup-mentor" to="/signup/mentor"><FontAwesomeIcon icon={faAddressCard} /> <span>Sign up as Mentor</span></Link>
+                <Link className="signup-mentee" to="/signup/mentee">
+                    <FontAwesomeIcon icon={faAddressCard} /> <span>Sign up as Mentee</span>
+                </Link>
+                <Link className="signup-mentor" to="/signup/mentor">
+                    <FontAwesomeIcon icon={faAddressCard} /> <span>Sign up as Mentor</span>
+                </Link>
             </div>
             <Footer backgroundColor={'#6ADBD7'} color={'#274a79'}></Footer>
         </div>
+
     )
 }
 export default SignUp;
