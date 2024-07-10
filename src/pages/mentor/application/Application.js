@@ -46,15 +46,15 @@ export default function MentorApplication() {
         <h1>Applications Received</h1>
         <div
           className={`${applications.length > 0
-              ? "applications-list-mentor"
-              : "no-applications-list"
+            ? "applications-list-mentor"
+            : "no-applications-list"
             }`}
         >
           {applications && applications.length > 0 ? (
             applications.map((application, index) => (
               <div key={index} className="application-item">
                 <img
-                  className="img-application"
+                  className="img-application-mentor"
                   src={application.user.profilePic}
                   alt={application.user.fullName}
                   onError={(e) => {
@@ -73,14 +73,14 @@ export default function MentorApplication() {
                     <b>Status: </b>{" "}
                     <span
                       className={` status ${application.status === "PENDING"
-                          ? "pending-status"
-                          : application.status === "ACCEPTED"
+                        ? "pending-status"
+                        : application.status === "ACCEPTED"
 
                           ? "accept-status"
                           : application.status === "DENIED"
-                          ? "denied-status"
-                          : "status-paid"
-                      }`}
+                            ? "denied-status"
+                            : "status-paid"
+                        }`}
 
                     >
                       {application.status}

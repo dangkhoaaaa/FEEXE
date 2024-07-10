@@ -208,8 +208,8 @@ export default function MentorMessenger() {
                   searchResults.map((result) => (
                     <div
                       className={`chat-item ${activeChatPartnerId === result.chatPartnerId
-                          ? "active"
-                          : ""
+                        ? "active"
+                        : ""
                         }`}
                       key={result.chatPartnerId}
                       onClick={() => handleChatItemClick(result)}
@@ -254,7 +254,7 @@ export default function MentorMessenger() {
                         <p className="time-chat"></p>
                       </div>
                       {chat.messages && chat.messages.length > 0 && (
-                        <p>
+                        <p className="mess-latest">
                           {chat.messages[0]?.content.slice(0, 30)}
                           {chat.messages[0]?.content.length > 30 ? (
                             <span>...</span>

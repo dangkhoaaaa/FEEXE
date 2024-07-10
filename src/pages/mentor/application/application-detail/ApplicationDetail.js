@@ -81,7 +81,7 @@ export default function ApplicationDetail() {
             {role === 'Mentor' ? detail.user && (
                 <div className="application-detail-container">
                     <NavMentor activePage="application" />
-                    <div style={{ display: 'flex' }}>
+                    <div className='application-detail' style={{ display: 'flex' }}>
                         <div className='mentee-infor-detail'>
                             <img
                                 className='img-application'

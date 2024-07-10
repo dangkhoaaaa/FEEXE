@@ -72,8 +72,8 @@ export default function Notification() {
                                 <div className='noti-item'>
                                     {/* <FontAwesomeIcon className='icon-noti' icon={faBell} size='2x' /> */}
                                     <img className='img-noti' src={noti.senderAvatar ? noti.senderAvatar : altImg} />
-                                    <div>
-                                        <strong>{noti.content}</strong><br />
+                                    <div className='noti-main'>
+                                        <strong >{noti.content}</strong><br />
                                         <small className='noti-time'>{formatDate(noti.createdDate)}</small>
                                     </div>
                                 </div>
