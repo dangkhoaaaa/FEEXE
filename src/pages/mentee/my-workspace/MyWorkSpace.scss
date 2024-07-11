@@ -188,6 +188,12 @@
   .submission-item {
     width: 100%;
   }
+
+  .mentor-workspace-item,
+  .feedback-workspace-item {
+    width: 80%;
+    height: fit-content;
+  }
 }
 
 @media only screen and (max-width: 480px) {

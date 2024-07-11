@@ -38,19 +38,17 @@ export default function Application() {
 
   const handlePayment = (id, price) => {
     axiosInstance
-      .post(`${RYI_URL}/Payment/create-payment-url`, {
-        OrderInfo: id,
-        FullName: "mentee",
-        OrderType: "pay",
+      .post(`${RYI_URL}/Payment/create-payment-url-payOs`, {
+        orderCode: id,
         Description: "",
         amount: price,
       })
       .then((response) => {
-        console.log(response);
+        console.log('payment', response);
         if (response.data.isSuccess) {
           console.log("Payment successful:", response);
           // Navigate to the payment URL
-          window.open(response.data.data, "_blank");
+          window.open(response.data.data.checkoutUrl, "_blank");
         } else {
           console.error("Payment error:", response.data.messages[0].content);
           // Display the error message to the user

@@ -93,6 +93,7 @@ export default function NavMentor({ activePage }) {
         document.cookie =
           "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         localStorage.removeItem("role");
+        localStorage.removeItem("token");
         navigate("/signin");
       })
       .catch((error) => {

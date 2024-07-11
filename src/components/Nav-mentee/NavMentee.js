@@ -96,6 +96,7 @@ export default function NavMentee({ activePage }) {
                     "token=; path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC; SameSite=Lax; Secure";
                 // Clear local storage role
                 localStorage.removeItem("role");
+                localStorage.removeItem("token");
             })
             .catch((error) => {
                 console.error("Logout error:", error);
