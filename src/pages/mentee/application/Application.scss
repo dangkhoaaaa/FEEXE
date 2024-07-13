@@ -55,6 +55,7 @@
     padding: 0 20px;
     font-weight: 700;
     color: #fff;
+    margin-left: 10px;
   }
 
   .mentee-btn-view-detail-application {
@@ -155,12 +156,19 @@
     .mentee-btn-view-detail-application {
       width: 100%;
       font-size: 14px;
+      margin: 0;
+      margin-top: 10px;
     }
   }
 
   .mentee-img-application {
     width: 100px;
     height: 100px;
+  }
+
+  .btn-aplication-mentee {
+    display: flex;
+    flex-direction: column;
   }
 }
 

@@ -17,6 +17,7 @@ export default function ApplicationDetail() {
     const { applicationId } = useParams();
     const [detail, setDetail] = useState(null); // Initialize as null to ensure loading state is shown
     const role = localStorage.getItem('role');
+    const [error, setError] = useState('')
 
     const updateApplicationStatus = async (status) => {
         try {
@@ -55,23 +56,26 @@ export default function ApplicationDetail() {
     }
 
     const handlePayment = (id, price) => {
-        axiosInstance.post(`${RYI_URL}/Payment/create-payment-url`, {
-            OrderInfo: id, FullName: 'mentee', OrderType: 'pay', Description: '', amount: price
+        axiosInstance.post(`${RYI_URL}/Payment/create-payment-url-payOs`, {
+            orderCode: id,
+            Description: '',
+            amount: price
         })
             .then((response) => {
                 console.log(response);
                 if (response.data.isSuccess) {
                     console.log('Payment successful:', response);
+
                     // Navigate to the payment URL
-                    window.open(response.data.data, '_blank');
+                    window.open(response.data.data.checkoutUrl, '_blank');
                 } else {
                     console.error('Payment error:', response.data.messages[0].content);
-                    // Display the error message to the user
+                    setError(response.data.messages[0].content)
                 }
             })
             .catch((err) => {
                 console.error('Payment error:', err);
-                // Display a generic error message to the user
+
             });
     };
 
@@ -153,7 +157,9 @@ export default function ApplicationDetail() {
                                     <h4>{detail.price} VND</h4>
                                     {detail.status === 'ACCEPTED' && (
                                         <button className='btn-payment' onClick={() => handlePayment(detail.id, detail.price)}>Payment</button>
-                                    )}
+
+                                    )} <br />
+                                    {error && <small className='error-message'>{error}</small>}
                                     <p>{detail.menteePlan?.descriptionOfPlan}</p>
                                     <div style={{ marginTop: '30px' }}>
                                         <p><FontAwesomeIcon className='icon-mentorship-plan' icon={faPhoneVolume} /> {detail.menteePlan?.callPerMonth} calls per month ({detail.menteePlan?.durationOfMeeting}min/call)</p>
@@ -178,8 +184,9 @@ export default function ApplicationDetail() {
                         </div>
                     </div>
                 )
-            )}
+            )
+            }
             <Footer backgroundColor={'#274A79'} color={'#F9FDFF'} />
-        </div>
+        </div >
     );
 }

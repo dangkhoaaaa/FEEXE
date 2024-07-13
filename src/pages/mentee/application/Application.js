@@ -107,25 +107,27 @@ export default function Application() {
                       {application.status}
                     </span>
                   </p>
-                  <button
-                    className="btn-view-detail-application"
-                    onClick={() => {
-                      handleViewDetail(application.id);
-                    }}
-                  >
-                    View detail
-                  </button>
-
-                  {application.status === "ACCEPTED" && (
+                  <div className="btn-aplication-mentee">
                     <button
-                      className="mentee-btn-payment"
-                      onClick={() =>
-                        handlePayment(application.id, application.price)
-                      }
+                      className="btn-view-detail-application"
+                      onClick={() => {
+                        handleViewDetail(application.id);
+                      }}
                     >
-                      Payment
+                      View detail
                     </button>
-                  )}
+
+                    {application.status === "ACCEPTED" && (
+                      <button
+                        className="mentee-btn-payment"
+                        onClick={() =>
+                          handlePayment(application.id, application.price)
+                        }
+                      >
+                        Payment
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             ))
