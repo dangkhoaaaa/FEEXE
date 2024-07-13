@@ -80,7 +80,7 @@ export default function Application() {
               <div key={index} className="mentee-application-item">
                 <img
                   className="mentee-img-application"
-                  src={application.mentor.profilePic || altImg}
+                  src={application.mentor.profilePic ? application.mentor.profilePic : altImg}
                   alt={application.mentor.fullName}
                   onError={(e) => {
                     e.target.src = img;

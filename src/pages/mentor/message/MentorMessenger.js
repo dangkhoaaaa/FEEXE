@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-regular-svg-icons";
 import * as signalR from "@microsoft/signalr";
 import NavMentee from "../../../components/Nav-mentee/NavMentee";
+import { ConsoleLogger } from "@microsoft/signalr/dist/esm/Utils";
+import { useNavigate } from "react-router-dom";
 
 // const backendURL = process.env.REACT_APP_API_URL;
 const backendURL = "https://totevn.azurewebsites.net";
@@ -20,6 +22,7 @@ export default function MentorMessenger() {
   const [chatName, setChatName] = useState({
     chatPartnerPhoto: "",
     chatPartnerName: "",
+    chatPartnerID: ""
   });
   const [newMessage, setNewMessage] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
@@ -28,6 +31,7 @@ export default function MentorMessenger() {
   const [connection, setConnection] = useState(null);
   const selectedChatPartnerIdRef = useRef(selectedChatPartnerId);
   const chatContainerRef = useRef(null);
+  const navigate = useNavigate()
 
   const role = localStorage.getItem("role");
   useEffect(() => {
@@ -139,6 +143,7 @@ export default function MentorMessenger() {
     setChatName({
       chatPartnerPhoto: chat.chatPartnerPhoto,
       chatPartnerName: chat.chatPartnerName,
+      chatPartnerID: chat.chatPartnerId,
     });
     setSearchQuery("");
 
@@ -170,6 +175,11 @@ export default function MentorMessenger() {
       setSearchResults([]);
     }
   };
+
+  const handleViewProfile = (id) => {
+    console.log('ID', id);
+    navigate(`/userProfile/${id}`)
+  }
 
   function formatDateTime(dateTimeStr) {
     const date = new Date(dateTimeStr);
@@ -245,6 +255,7 @@ export default function MentorMessenger() {
                       className="chat-photo"
                       src={chat.chatPartnerPhoto || altImg}
                       alt="chat partner"
+
                     />
                     <div className="partner-infor">
                       <div className="partnerName-time">
@@ -275,6 +286,9 @@ export default function MentorMessenger() {
                 className="img-chat-box"
                 src={chatName.chatPartnerPhoto || altImg}
                 alt="chat partner"
+                onClick={() => {
+                  handleViewProfile(chatName.chatPartnerID)
+                }}
               />
               <h4>{chatName.chatPartnerName}</h4>
             </div>

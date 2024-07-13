@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp, faRightFromBracket, faToolbox } from '@fortawesome/free-solid-svg-icons';
 import { logout } from '../../services/service';
 import { useNavigate } from 'react-router-dom';
+import altImg from "../../assets/image/noImage.png";
+import './NavStaff.scss'
 
 
 export default function NavStaff() {
@@ -16,7 +18,7 @@ export default function NavStaff() {
         logout()
             .then(response => {
                 console.log('Logout successful:', response);
-                navigate('/signin'); // Redirect to the login page after logout
+                navigate('/signin');
                 // Delete the token cookie
                 document.cookie = 'token=; path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC; SameSite=Lax; Secure';
                 // Clear local storage role
@@ -53,7 +55,7 @@ export default function NavStaff() {
             <div className="infor-menu" onClick={toggleMenu} >
                 <img
                     className="infor-avatar"
-                    src="https://via.placeholder.com/40"
+                    src={altImg}
                     alt="User Avatar"
                 />
                 <FontAwesomeIcon icon={isMenuOpen ? faChevronUp : faChevronDown} className="chevron-icon" style={{ color: "#6ADBD7" }} />

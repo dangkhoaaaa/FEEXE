@@ -8,6 +8,7 @@ import axiosInstance from "../../../service/AxiosInstance";
 import { RYI_URL } from "../../../URL_BE/urlbackend";
 import img from "../../../assets/image/banner-img2.jpg";
 import { Link, useNavigate } from "react-router-dom";
+import altImg from '../../../assets/image/noImage.png'
 
 export default function MentorApplication() {
   const [applications, setApplications] = useState([]);
@@ -55,7 +56,7 @@ export default function MentorApplication() {
               <div key={index} className="application-item">
                 <img
                   className="img-application-mentor"
-                  src={application.user.profilePic}
+                  src={application.user.profilePic ? application.user.profilePic : altImg}
                   alt={application.user.fullName}
                   onError={(e) => {
                     e.target.src = img;

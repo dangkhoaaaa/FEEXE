@@ -11,7 +11,7 @@ export default function ReviewMentors({ mentorId }) {
     const fetchFeedbackApi = () => {
         axiosInstance.get(`${RYI_URL}/Feedback/${mentorId}?PageIndex=1&&PageSize=100`)
             .then((res) => {
-                console.log(res);
+                console.log('review: ', res.data);
                 setFeedbacks(res.data.data.data);
             })
             .catch((err) => {
@@ -51,7 +51,7 @@ export default function ReviewMentors({ mentorId }) {
                     feedbacks.map((feedback, index) => (
                         <div key={index} className='review-mentor-item'>
                             <div className='mentee-review-infor-container'>
-                                <img className='mentee-review-img' src={img} alt="Mentee" />
+                                <img className='mentee-review-img' src={feedback.createdUserProfilePic ? feedback.createdUserProfilePic : img} alt="Mentee" />
                                 <div className='mentee-review-infor'>
                                     <div style={{ display: 'flex' }}>
                                         <h4>{feedback.createdUserName}</h4>
@@ -69,7 +69,6 @@ export default function ReviewMentors({ mentorId }) {
                                 </div>
                             </div>
                             <p className='mentee-review-content'>
-                                Mentor is very dedicated and very good. <br />
                                 {feedback.comment}
                             </p>
                         </div>

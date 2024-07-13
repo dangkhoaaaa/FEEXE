@@ -41,6 +41,8 @@
 
 .btn-filter-container {
   height: fit-content;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
 }
 
 .custom-header {
@@ -67,5 +69,16 @@
   &.denied {
     background-color: rgb(255, 35, 1);
     border: 1px solid #274a79;
+  }
+}
+
+@media only screen and (max-width: 1120px) {
+  .btn-filter-container {
+    grid-template-columns: auto auto !important;
+    gap: 20px;
+  }
+
+  .staff-management-filter {
+    flex-direction: column;
   }
 }
