@@ -9,10 +9,13 @@ import axiosInstance from "../../../service/AxiosInstance";
 import { RYI_URL } from "../../../URL_BE/urlbackend";
 import img from "../../../assets/image/banner-img1.jpg"; // Import your default image
 import altImg from "../../../assets/image/noImage.png";
+import { Spinner } from "react-bootstrap";
 
 export default function Application() {
   const [applications, setApplications] = useState([]);
   const navigate = useNavigate();
+  const [isLoading, setIsLoaidng] = useState(false)
+
 
   const fetchApplicationApi = () => {
     axiosInstance
@@ -37,6 +40,7 @@ export default function Application() {
   }, []);
 
   const handlePayment = (id, price) => {
+    setIsLoaidng(true)
     axiosInstance
       .post(`${RYI_URL}/Payment/create-payment-url-payOs`, {
         orderCode: id,
@@ -45,6 +49,7 @@ export default function Application() {
       })
       .then((response) => {
         console.log('payment', response);
+        setIsLoaidng(true)
         if (response.data.isSuccess) {
           console.log("Payment successful:", response);
           // Navigate to the payment URL
@@ -57,6 +62,9 @@ export default function Application() {
       .catch((err) => {
         console.error("Payment error:", err);
         // Display a generic error message to the user
+      })
+      .finally(() => {
+        setIsLoaidng(false)
       });
   };
 
@@ -125,6 +133,10 @@ export default function Application() {
                         }
                       >
                         Payment
+                        {isLoading && (
+                          <Spinner animation="border" role="status" style={{ width: '1rem', height: '1rem' }}>
+                            <span className="visually-hidden">Loading...</span>
+                          </Spinner>)}
                       </button>
                     )}
                   </div>

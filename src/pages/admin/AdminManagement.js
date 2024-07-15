@@ -111,7 +111,7 @@ const UserManagement = ({ Search }) => {
     <div className="management-container">
       <h2>Users Management</h2>
       {isLoading ? (
-        <Spinner animation="border" role="status">
+        <Spinner animation="border" role="status" style={{ width: '1rem', height: '1rem' }}>
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       ) : (
@@ -238,7 +238,7 @@ const MentorManagement = ({ Search }) => {
     <div className="management-container">
       <h2 className="admin-title">Mentors Management</h2>
       {isLoading ? (
-        <Spinner animation="border" role="status">
+        <Spinner animation="border" role="status" style={{ width: '1rem', height: '1rem' }}>
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       ) : (
@@ -356,7 +356,7 @@ const TransactionManagement = ({ Search }) => {
     <div className="management-container">
       <h2 className="admin-title">Transactions Management</h2>
       {isLoading ? (
-        <Spinner animation="border" role="status">
+        <Spinner animation="border" role="status" style={{ width: '1rem', height: '1rem' }}>
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       ) : (
@@ -484,7 +484,7 @@ const StaffManagement = ({ Search }) => {
         <Button onClick={handleOpenModal}>Add Staff</Button>
       </div>
       {isLoading ? (
-        <Spinner animation="border" role="status">
+        <Spinner animation="border" role="status" style={{ width: '1rem', height: '1rem' }}>
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       ) : (

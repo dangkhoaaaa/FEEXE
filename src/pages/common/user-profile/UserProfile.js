@@ -17,12 +17,16 @@ export default function UserProfile() {
     const role = localStorage.getItem('role')
     const { userId } = useParams();
     const [user, setUser] = useState({});
+    const [userRole, setUserRole] = useState([])
+
 
     useEffect(() => {
         axiosInstance.get(`${RYI_URL}/Account/${userId}`)
             .then(response => {
                 setUser(response.data.data);
                 console.log('user profile', response.data.data);
+                setUserRole(response.data.data.userRoles)
+                console.log('user role', response.data.data.userRoles[0].name)
             })
             .catch(error => {
                 console.error("There was an error fetching the user's profile!", error);
@@ -55,9 +59,10 @@ export default function UserProfile() {
                                 <h2 className='about-title'>About</h2>
                                 <p className='user-about-content'>{user.bio}</p>
                             </div>
-                            <ReviewMentors mentorId={userId} />
+                            {userRole === "Mentor" && <ReviewMentors mentorId={userId} />}
                         </div>
-                        <MentorshipPlan id={userId} />
+
+                        {userRole === "Mentor" && <MentorshipPlan id={userId} />}
                     </div>
                     <Footer backgroundColor={'#274A79'} color={'#F9FDFF'} />
                 </div>

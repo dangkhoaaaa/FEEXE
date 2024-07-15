@@ -64,7 +64,7 @@ export default function MenteeHomePage() {
             <NavMentee activePage="home" />
             {isLoading ? (
                 <div className="spinner-container">
-                    <Spinner animation="border" role="status">
+                    <Spinner animation="border" role="status" style={{ width: '1rem', height: '1rem' }}>
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>
                 </div>

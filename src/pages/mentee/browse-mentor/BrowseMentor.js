@@ -53,7 +53,7 @@ export default function BrowseMentor() {
             <div className='browse-mentor-container'>
                 {isLoading ? (
                     <div className="spinner-container">
-                        <Spinner animation="border" role="status">
+                        <Spinner animation="border" role="status" style={{ width: '2rem', height: '2rem' }}>
                             <span className="visually-hidden">Loading...</span>
                         </Spinner>
                     </div>

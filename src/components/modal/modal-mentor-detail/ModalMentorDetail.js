@@ -42,7 +42,7 @@ function ModalMentorDetail({ id, onClose }) {
     };
 
     if (!mentorDetail) {
-        return <Spinner animation="border" role="status">
+        return <Spinner animation="border" role="status" style={{ width: '1rem', height: '1rem' }}>
             <span className="visually-hidden">Loading...</span>
         </Spinner>
     }

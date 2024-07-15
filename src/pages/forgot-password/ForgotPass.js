@@ -62,7 +62,7 @@ export default function ForgotPass() {
                             required
                         />
                         <button type='submit'>
-                            {isSubmitting ? <Spinner animation="border" /> : 'Send Email'}
+                            {isSubmitting ? <Spinner animation="border" style={{ width: '1rem', height: '1rem' }} /> : 'Send Email'}
                         </button>
                         {error && <p className='forgot-password-error'>{error}</p>}
                     </form>

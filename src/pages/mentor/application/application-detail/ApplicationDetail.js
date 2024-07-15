@@ -18,6 +18,7 @@ export default function ApplicationDetail() {
     const [detail, setDetail] = useState(null); // Initialize as null to ensure loading state is shown
     const role = localStorage.getItem('role');
     const [error, setError] = useState('')
+    const [isLoading, setIsLoaidng] = useState(false)
 
     const updateApplicationStatus = async (status) => {
         try {
@@ -52,10 +53,11 @@ export default function ApplicationDetail() {
     };
 
     if (!detail) {
-        return <p><Spinner animation="border" />;</p>;
+        return <p><Spinner animation="border" style={{ width: '2rem', height: '2rem' }} />;</p>;
     }
 
     const handlePayment = (id, price) => {
+        setIsLoaidng(true)
         axiosInstance.post(`${RYI_URL}/Payment/create-payment-url-payOs`, {
             orderCode: id,
             Description: '',
@@ -64,18 +66,27 @@ export default function ApplicationDetail() {
             .then((response) => {
                 console.log(response);
                 if (response.data.isSuccess) {
+                    setIsLoaidng(true)
                     console.log('Payment successful:', response);
 
                     // Navigate to the payment URL
                     window.open(response.data.data.checkoutUrl, '_blank');
                 } else {
-                    console.error('Payment error:', response.data.messages[0].content);
-                    setError(response.data.messages[0].content)
+                    if (response.data.detail) {
+                        setError(response.data.detail)
+                        console.log('Payment Error:', response.data.detail)
+                    } else {
+                        console.log('Payment error:', response.data.messages[0].content);
+                        setError(response.data.messages[0].content)
+                    }
                 }
             })
             .catch((err) => {
                 console.error('Payment error:', err);
 
+            })
+            .finally(() => {
+                setIsLoaidng(false)
             });
     };
 
@@ -156,7 +167,13 @@ export default function ApplicationDetail() {
                                     <h3> Mentorship Plan Booking</h3>
                                     <h4>{detail.price} VND</h4>
                                     {detail.status === 'ACCEPTED' && (
-                                        <button className='btn-payment' onClick={() => handlePayment(detail.id, detail.price)}>Payment</button>
+                                        <button className='btn-payment' onClick={() => handlePayment(detail.id, detail.price)}>
+                                            Payment
+                                            {isLoading && (
+                                                <Spinner animation="border" role="status" style={{ width: '1rem', height: '1rem' }}>
+                                                    <span className="visually-hidden">Loading...</span>
+                                                </Spinner>)}
+                                        </button>
 
                                     )} <br />
                                     {error && <small className='error-message'>{error}</small>}

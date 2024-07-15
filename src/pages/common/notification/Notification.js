@@ -62,7 +62,7 @@ export default function Notification() {
             <div className='notification-container'>
                 <div className='notification-list'>
                     {isLoading ? (
-                        <Spinner animation="border" role="status">
+                        <Spinner animation="border" role="status" style={{ width: '1rem', height: '1rem' }}>
                             <span className="visually-hidden">Loading...</span>
                         </Spinner>
                     ) : (

@@ -99,7 +99,7 @@ function SignIn() {
                         </div>
                         <small className="error-mess">{error}</small>
                         <button type="submit" className="login-button">Sign In
-                            {isLoading && <Spinner animation="border" />}
+                            {isLoading && <Spinner animation="border" style={{ width: '1rem', height: '1rem' }} />}
                         </button>
                         <div className="other-login">
                             <span className="seperate">
