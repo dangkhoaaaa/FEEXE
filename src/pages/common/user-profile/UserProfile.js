@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import './UserProfile.scss'
+import React, { useEffect, useState } from 'react';
+import './UserProfile.scss';
 import NavMentee from '../../../components/Nav-mentee/NavMentee';
 import MentorshipPlan from '../../../components/mentee/mentorship-plan/MentorshipPlan';
 import ReviewMentors from '../../../components/mentee/review-mentor/ReviewMentors';
@@ -14,24 +14,24 @@ import NavMentor from '../../../components/Nav-mentor/NavMentor';
 import SkillsList from '../../../components/mentee/mentor-skill/MentorSkills';
 
 export default function UserProfile() {
-    const role = localStorage.getItem('role')
+    const role = localStorage.getItem('role');
     const { userId } = useParams();
     const [user, setUser] = useState({});
-    const [userRole, setUserRole] = useState([])
-
+    const [userRole, setUserRole] = useState([]);
 
     useEffect(() => {
         axiosInstance.get(`${RYI_URL}/Account/${userId}`)
             .then(response => {
                 setUser(response.data.data);
-                console.log('user profile', response.data.data);
-                setUserRole(response.data.data.userRoles)
-                console.log('user role', response.data.data.userRoles[0].name)
+                setUserRole(response.data.data.userRoles.map(role => role.name));
+                console.log('user profile:', response.data)
             })
             .catch(error => {
                 console.error("There was an error fetching the user's profile!", error);
             });
     }, [userId]);
+
+    const isMentor = userRole.includes("Mentor");
 
     return (
         <>
@@ -59,10 +59,9 @@ export default function UserProfile() {
                                 <h2 className='about-title'>About</h2>
                                 <p className='user-about-content'>{user.bio}</p>
                             </div>
-                            {userRole === "Mentor" && <ReviewMentors mentorId={userId} />}
+                            {isMentor && <ReviewMentors mentorId={userId} />}
                         </div>
-
-                        {userRole === "Mentor" && <MentorshipPlan id={userId} />}
+                        {isMentor && <MentorshipPlan id={userId} />}
                     </div>
                     <Footer backgroundColor={'#274A79'} color={'#F9FDFF'} />
                 </div>
@@ -85,19 +84,16 @@ export default function UserProfile() {
                                     </div>
                                 </div>
                                 <SkillsList skills={user.userSkills} />
-
                             </div>
                             <div className='user-profile-about'>
                                 <h2>About</h2>
                                 <p className='user-about-content'>{user.bio}</p>
-
                             </div>
                         </div>
                     </div>
                     <Footer backgroundColor={'#274A79'} color={'#F9FDFF'} />
                 </div>
-            )
-            }
+            )}
         </>
     );
 }
